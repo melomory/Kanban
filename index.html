@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Kanban</title>
+</head>
+
+<body class="app">
+    <header class="app-header">
+        <div class="app-header-title">
+            <h1>Канбан</h1>
+        </div>
+    </header>
+    <main class="app-main">
+        <aside class="task-list-create">
+            <input class="task-list-input" type="text" placeholder="Название списка задач" value="Задачи">
+            <button class="task-add task-list-add" type="button" title="Add" aria-label="Добавить">Добавить</button>
+        </aside>
+        <div class="task-board">
+            <section class="task-type">
+                <div class="task-list-title">
+                    <h2>Новая задача</h2>
+                    <button class="task-delete task-list-delete" type="button" title="Delete" aria-label="Удалить"></button>
+                </div>
+                <div class="task-list">
+                    <div class="task-item task-default hide">
+                        <div class="task-body">
+                            <p class="task-view">Пусто</p>
+                        </div>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-body">
+                            <p class="task-view">Название первой задачи1</p>
+                            <input class="task-input" type="text" value="Название первой задачи">
+                        </div>
+                        <button class="task-delete" type="button" title="Delete" aria-label="Удалить"></button>
+                    </div>
+                    <button class="task-add" type="button" title="Add" aria-label="Добавить">Добавить</button>
+                </div>
+            </section>
+            <section class="task-type">
+                <div class="task-list-title">
+                    <h2>В работе</h2>
+                    <button class="task-delete task-list-delete" type="button" title="Delete" aria-label="Удалить"></button>
+                </div>
+                <div class="task-list">
+                    <div class="task-item task-default hide">
+                        <div class="task-body">
+                            <p class="task-view">Пусто</p>
+                        </div>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-body">
+                            <p class="task-view">Название первой задачи2</p>
+                            <input class="task-input" type="text" value="Название первой задачи">
+                        </div>
+                        <button class="task-delete" type="button" title="Delete" aria-label="Удалить"></button>
+                    </div>
+                    <button class="task-add" type="button" title="Add" aria-label="Добавить">Добавить</button>
+                </div>
+            </section>
+            <section class="task-type">
+                <div class="task-list-title">
+                    <h2>Завершены</h2>
+                    <button class="task-delete task-list-delete" type="button" title="Delete" aria-label="Удалить"></button>
+                </div>
+                <div class="task-list">
+                    <div class="task-item task-default hide">
+                        <div class="task-body">
+                            <p class="task-view">Пусто</p>
+                        </div>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-body">
+                            <p class="task-view">Название первой задачи3</p>
+                            <input class="task-input" type="text" value="Название первой задачи">
+                        </div>
+                        <button class="task-delete" type="button" title="Delete" aria-label="Удалить"></button>
+                    </div>
+                    <button class="task-add" type="button" title="Add" aria-label="Добавить">Добавить</button>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+<script src="js/scripts.js"></script>
+
+</html>

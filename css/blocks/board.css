@@ -1,0 +1,27 @@
+.app {
+  height: auto;
+}
+
+.app-header {
+  padding: 24px 20px;
+  padding-bottom: 20px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 250, 0.699);
+}
+
+.app-main {
+  padding: 24px 20px 48px;
+  background-color: rgba(79, 151, 245, 0.596);
+  min-height: calc(100vh - 80px);
+  overflow-x: auto;
+}
+
+.task-board {
+  display: flex;
+  flex-direction: row;
+}
+
+.task-list-create {
+  margin: 0;
+  padding: 10px;
+}

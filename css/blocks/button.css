@@ -1,0 +1,58 @@
+.task-add {
+    width: 165px;
+    min-height: 26px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background-color: #608cb1;
+    
+}
+
+.task-add:hover {
+    background-color: #4dabf8;
+  }
+
+.task-add:active
+ {
+  padding: 0;
+  background-color: #37a0f7;
+  border: 1px solid rgb(193, 209, 255);
+}
+
+.task-delete {
+    align-self: center;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 4px;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: url("../../images/delete-button.svg");
+    background-repeat:no-repeat;
+    background-position:bottom;
+    background-size: contain;
+}
+
+.task-deleted:hover {
+    background-color: #4dabf8;
+  }
+
+.task-delete:active
+ {
+  padding: 0;
+  background-color: #37a0f7;
+  border: 1px solid rgb(193, 209, 255);
+}
+
+.task-list-add {
+  min-width: 100px;
+}
+
+.task-list-delete {
+  min-width: 15px;
+  min-height: 15px;
+}

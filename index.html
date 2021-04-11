@@ -15,7 +15,7 @@
     </header>
     <main class="app-main">
         <aside class="task-list-create">
-            <input class="task-list-input" type="text" placeholder="Название списка задач" value="Задачи">
+            <input class="task-list-input" type="text" placeholder="Название списка задач" value="Новая колонка задач">
             <button class="task-add task-list-add" type="button" title="Add" aria-label="Добавить">Добавить</button>
         </aside>
         <div class="task-board">
@@ -32,8 +32,8 @@
                     </div>
                     <div class="task-item">
                         <div class="task-body">
-                            <p class="task-view">Название первой задачи1</p>
-                            <input class="task-input" type="text" value="Название первой задачи">
+                            <p class="task-view">Название задачи</p>
+                            <input class="task-input" type="text" value="Название задачи">
                         </div>
                         <button class="task-delete" type="button" title="Delete" aria-label="Удалить"></button>
                     </div>
@@ -53,8 +53,8 @@
                     </div>
                     <div class="task-item">
                         <div class="task-body">
-                            <p class="task-view">Название первой задачи2</p>
-                            <input class="task-input" type="text" value="Название первой задачи">
+                            <p class="task-view">Название задачи</p>
+                            <input class="task-input" type="text" value="Название задачи">
                         </div>
                         <button class="task-delete" type="button" title="Delete" aria-label="Удалить"></button>
                     </div>
@@ -74,8 +74,8 @@
                     </div>
                     <div class="task-item">
                         <div class="task-body">
-                            <p class="task-view">Название первой задачи3</p>
-                            <input class="task-input" type="text" value="Название первой задачи">
+                            <p class="task-view">Название задачи</p>
+                            <input class="task-input" type="text" value="Название задачи">
                         </div>
                         <button class="task-delete" type="button" title="Delete" aria-label="Удалить"></button>
                     </div>
@@ -84,6 +84,33 @@
             </section>
         </div>
     </main>
+    <template id="task-item-template">
+        <div class="task-item" draggable="true">
+            <div class="task-body">
+                <p class="task-view">Название задачи</p>
+                <input class="task-input" type="text" value="Название задачи">
+            </div>
+            <button class="task-delete" type="button" title="Delete" aria-label="Удалить"></button>
+        </div>
+    </template>
+    <template id="task-list-template">
+        <section class="task-type">
+            <div class="task-list-title">
+                <h2>Новая колонка задач</h2>
+                <button class="task-delete task-list-delete" type="button" title="Delete" aria-label="Удалить"></button>
+            </div>
+            <div class="task-list">
+                <div class="task-item task-default">
+                    <div class="task-body">
+                        <p class="task-view">Пусто</p>
+                    </div>
+                </div>
+                <button class="task-add" type="button" title="Add" aria-label="Добавить">Добавить</button>
+            </div>
+        </section>
+    </template>
+
+
 </body>
 <script src="js/scripts.js"></script>
 

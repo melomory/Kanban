@@ -79,19 +79,18 @@ function addEventListenerOnBlur(taskInput) {
 
 /************************ Добавление нового списка задач *************************/
 let addTaskList = document.querySelector(".task-list-add");
-let taskTypes = document.querySelectorAll(".task-type");
+let taskTypes = document.querySelector(".task-board").children;
 
 addTaskList.onclick = function () {
   let newTaskListName = document.querySelector(".task-list-input").value;
   if (!newTaskListName) newTaskListName = "Задачи";
-  let newTaskList = createTaskList(newTaskListName);
-  if (taskTypes == "undefined") {
+  let newTaskList =  createTaskList(newTaskListName);
+
+  if (taskTypes.length) {
     taskTypes[taskTypes.length - 1].after(newTaskList);
   } else {
     document.querySelector(".task-board").appendChild(newTaskList);
   }
-
-  taskTypes = document.querySelectorAll(".task-type");
 };
 
 /**
@@ -100,42 +99,13 @@ addTaskList.onclick = function () {
  * @returns {object} новый список
  */
 function createTaskList(listName) {
-  // Create base elements
-  let taskType = document.createElement("section");
-  let taskListTitleBlcok = document.createElement("div");
-  let taskListTitle = document.createElement("h2");
-  let taskList = document.createElement("div");
-  let taskAssButton = document.createElement("button");
-  let taskListDelete = document.createElement("button");
-
-  //Add necessary properties and methods
-  taskType.classList.add("task-type");
-  taskListTitleBlcok.classList.add("task-list-title");
-  taskListTitle.textContent = listName;
-  taskList.classList.add("task-list");
+  let taskType = document.querySelector("#task-list-template").content.cloneNode(true);
+  let taskList = taskType.querySelector(".task-list")
+  addTaskHandler(taskType.querySelector(".task-add"));
+  addDeleteListHandler(taskType.querySelector(".task-list-delete"));
   addEventListenerDragStart(taskList);
   addEventListenerDragEnd(taskList);
   addEventListenerDragOver(taskList);
-  taskAssButton.classList.add("task-add");
-  taskAssButton.type = "button";
-  taskAssButton.title = "Add";
-  taskAssButton.setAttribute("aria-label", "Добавить");
-  taskAssButton.innerText = "Добавить";
-  addTaskHandler(taskAssButton);
-  taskListDelete.classList.add("task-delete");
-  taskListDelete.classList.add("task-list-delete");
-  taskListDelete.type = "button";
-  taskListDelete.title = "Delete";
-  taskListDelete.setAttribute("aria-label", "Удалить");
-  addDeleteListHandler(taskListDelete);
-
-  //Construct list
-  taskType.appendChild(taskListTitleBlcok);
-  taskListTitleBlcok.appendChild(taskListTitle);
-  taskListTitleBlcok.appendChild(taskListDelete);
-  taskType.appendChild(taskList);
-  taskList.appendChild(createDefaultTask());
-  taskList.appendChild(taskAssButton);
   return taskType;
 }
 
@@ -234,7 +204,7 @@ function addEventListenerDragOver(taskList) {
     taskList.insertBefore(activeElement, nextElement);
   });
 }
-/*********************************************************************************/
+/*****************************c****************************************************/
 
 /****************************** Создание задач ***********************************/
 /**
@@ -244,35 +214,10 @@ function addEventListenerDragOver(taskList) {
  * @return {object} taskItem Узел DOM с задачей
  */
 function createTask(taskName) {
-  // Create base elements
-  let taskItem = document.createElement("div");
-  let taskBody = document.createElement("div");
-  let taskView = document.createElement("p");
-  let taskInput = document.createElement("input");
-  let taskDelete = document.createElement("button");
-
-  //Add necessary properties and methods
-  taskItem.classList.add("task-item");
-  taskItem.draggable = true;
-  taskBody.classList.add("task-body");
-  taskView.classList.add("task-view");
-  taskView.textContent = taskName;
-  taskInput.classList.add("task-input");
-  taskInput.type = "text";
-  taskInput.value = taskName;
-  taskDelete.classList.add("task-delete");
-  taskDelete.type = "button";
-  taskDelete.title = "Delete";
-  taskDelete.setAttribute("aria-label", "Удалить");
-  addDeleteTaskHandler(taskDelete);
-
-  //Construct task
-  taskBody.appendChild(taskView);
-  taskBody.appendChild(taskInput);
-  taskItem.appendChild(taskBody);
-  taskItem.appendChild(taskDelete);
-  addEventListenerOnBlur(taskInput);
-  addEventListenerOnDoubleClick(taskBody);
+  let taskItem = document.querySelector("#task-item-template").content.cloneNode(true);
+  addDeleteTaskHandler(taskItem.querySelector(".task-delete"));
+  addEventListenerOnBlur(taskItem.querySelector(".task-input"));
+  addEventListenerOnDoubleClick(taskItem.querySelector(".task-body"));
 
   return taskItem;
 }

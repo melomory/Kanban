@@ -218,6 +218,7 @@ function createTask(taskName) {
   addDeleteTaskHandler(taskItem.querySelector(".task-delete"));
   addEventListenerOnBlur(taskItem.querySelector(".task-input"));
   addEventListenerOnDoubleClick(taskItem.querySelector(".task-body"));
+  taskItem.querySelector(".task-view").textContent = taskName;
 
   return taskItem;
 }
